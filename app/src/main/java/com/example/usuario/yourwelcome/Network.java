@@ -1,7 +1,9 @@
 package com.example.usuario.yourwelcome;
 
 import android.app.AlertDialog;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.widget.Toast;
 
 import com.example.usuario.yourwelcome.Connection.Connection;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +31,7 @@ import com.example.usuario.yourwelcome.Connection.Connection;
  * Use the {@link Network#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Network extends Fragment {
+public class Network extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,9 +44,10 @@ public class Network extends Fragment {
     Connection conexion;
     SQLiteDatabase db;
 
-    Button btnInsertar;
+    Button btnInsertar,btnConsultar;
     EditText edtName;
     View rootView;
+    EstudiantesView estudiantesObj;
 
     private OnFragmentInteractionListener mListener;
 
@@ -91,6 +96,23 @@ public class Network extends Fragment {
         db.execSQL(query);
     }
 
+    public void consultarEstudiante(){
+        Cursor c = db.rawQuery("SELECT * FROM estudiante", null);
+        ArrayList<String> estudiantes= new ArrayList<String>();
+        if(c.moveToFirst()){
+            do {
+                estudiantes.add(c.getString(1));
+            }while (c.moveToNext());
+        }
+        c.close();
+
+        estudiantesObj = new EstudiantesView().newInstance(estudiantes);
+        android.support.v4.app.FragmentTransaction transaccion = getActivity().getSupportFragmentManager().beginTransaction();
+        transaccion.replace(R.id.layout_frag,estudiantesObj);
+        transaccion.addToBackStack(null);
+        transaccion.commit();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -98,6 +120,7 @@ public class Network extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_network, container, false);
 
         btnInsertar = (Button) rootView.findViewById(R.id.btnRegistrar);
+        btnConsultar = (Button) rootView.findViewById(R.id.btnConsultar);
         edtName = (EditText) rootView.findViewById(R.id.edName);
         btnInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +129,7 @@ public class Network extends Fragment {
                 insertDatabase(name);
             }
         });
+        btnConsultar.setOnClickListener(this);
         return rootView;
     }
 
@@ -131,6 +155,17 @@ public class Network extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnConsultar:
+                consultarEstudiante();
+                break;
+            default:
+                break;
+        }
     }
 
     /**

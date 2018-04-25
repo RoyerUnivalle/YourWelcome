@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmentInteractionListener, Network.OnFragmentInteractionListener {
+public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmentInteractionListener, Network.OnFragmentInteractionListener, EstudiantesView.OnFragmentInteractionListener {
 
 
     DataBaseCrud frag;

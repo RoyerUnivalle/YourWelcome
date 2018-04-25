@@ -28,7 +28,18 @@
             android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTRAS ESTUDIANTE" />
+            android:text="REGISTRAR ESTUDIANTE" />
+
+        <Button
+            android:id="@+id/btnConsultar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONSULTAR ESTUDIANTE" />
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LIMPIAR ESTUDIANTE" />
 
     </LinearLayout>
 

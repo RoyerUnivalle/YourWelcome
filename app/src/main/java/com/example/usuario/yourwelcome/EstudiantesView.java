@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -76,6 +77,17 @@ public class EstudiantesView extends Fragment {
         listaEstudiantes = (ListView)  viewRoot.findViewById(R.id.estudiantesList);
         //Toast.makeText(getActivity(),"hola "+mParam1.size(),Toast.LENGTH_SHORT).show();
         estudiantesAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,mParam1);
+
+        listaEstudiantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String componente= listaEstudiantes.getAdapter().getItem(position).toString();
+                Toast.makeText(getContext(),"Hola: "+componente,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
         /*listaEstudiantes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

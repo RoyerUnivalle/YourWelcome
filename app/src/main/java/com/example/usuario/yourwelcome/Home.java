@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class Home extends AppCompatActivity implements View.OnClickListener, Network.OnFragmentInteractionListener{
+public class Home extends AppCompatActivity implements View.OnClickListener, Network.OnFragmentInteractionListener,EstudiantesView.OnFragmentInteractionListener{
 
     Button bnt1,btn2,btn3,btnVolver,btnPintar;
     int contador;
@@ -62,7 +62,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Net
     public void showFragment(View h){
         fragN = new Network();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameLayoutHome,fragN);
+        transaction.add(R.id.fragmentA,fragN);
         transaction.commit();
     }
 

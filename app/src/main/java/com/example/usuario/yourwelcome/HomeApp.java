@@ -48,7 +48,7 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
         }else{
             frag = new DataBaseCrud();
             android.support.v4.app.FragmentTransaction transition = getSupportFragmentManager().beginTransaction();
-            transition.add(R.id.layout_frag,frag);
+            transition.add(R.id.fragmentA,frag);
             transition.commit();
         }
     }
@@ -56,7 +56,7 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
     public void showNetworkOptions(){
         networkFrag = new Network();
         android.support.v4.app.FragmentTransaction transactionNet = getSupportFragmentManager().beginTransaction();
-        transactionNet.add(R.id.layout_frag,networkFrag);
+        transactionNet.add(R.id.fragmentA,networkFrag);
         transactionNet.commit();
     }
 

@@ -64,7 +64,7 @@ public class EstudiantesView extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getStringArrayList(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            //mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -74,14 +74,14 @@ public class EstudiantesView extends Fragment {
         // Inflate the layout for this fragment
         viewRoot =inflater.inflate(R.layout.fragment_estudiantes_view, container, false);
         listaEstudiantes = (ListView)  viewRoot.findViewById(R.id.estudiantesList);
-        Toast.makeText(getActivity(),"hola "+mParam1.size(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(),"hola "+mParam1.size(),Toast.LENGTH_SHORT).show();
         estudiantesAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,mParam1);
-        listaEstudiantes.setOnClickListener(new View.OnClickListener() {
+        /*listaEstudiantes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
-        });
+        });*/
         listaEstudiantes.setAdapter(estudiantesAdapter);
         return  viewRoot;
     }

@@ -1,6 +1,8 @@
 package com.example.usuario.yourwelcome;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,9 +22,31 @@ public class MainActivity extends AppCompatActivity {
         startActivity(ir);
     }
     public void irHomeApp(View g){
-        Intent ir = new Intent(MainActivity.this,HomeApp.class);
-        ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TOP | ir.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(ir);
+        String login="cvb";
+        String passwd="cvcb";
+        if(login.length()==0|| passwd.length()==0){
+            final AlertDialog dialogo = new AlertDialog.Builder(this).create();
+            dialogo.setTitle("Acceso no permitido");
+            dialogo.setMessage("Por favor registrese");
+            dialogo.setButton(DialogInterface.BUTTON_POSITIVE, "Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            dialogo.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogo.dismiss();
+                }
+            });
+            dialogo.show();
+        }else{
+            Intent ir = new Intent(MainActivity.this,HomeApp.class);
+            ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TOP | ir.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(ir);
+        }
+
     }
     @Override
     protected void onPause() {

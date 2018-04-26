@@ -108,7 +108,7 @@ public class Network extends Fragment implements View.OnClickListener{
 
         estudiantesObj = new EstudiantesView().newInstance(estudiantes);
         android.support.v4.app.FragmentTransaction transaccion = getActivity().getSupportFragmentManager().beginTransaction();
-        transaccion.replace(R.id.layout_frag,estudiantesObj);
+        transaccion.replace(R.id.fragmentA,estudiantesObj);
         transaccion.addToBackStack(null);
         transaccion.commit();
     }

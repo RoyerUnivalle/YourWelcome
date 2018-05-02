@@ -85,9 +85,9 @@ public class Network extends Fragment implements View.OnClickListener{
         conexion = new Connection(getContext(),"UnivalleDb",null,1);
         db = conexion.getWritableDatabase();
         if(conexion!=null){
-            Toast.makeText(getContext(),"Bd Creadad",Toast.LENGTH_SHORT).show();
-            String query="insert into estudiante (name) values ('royer');";
-            db.execSQL(query);
+            Toast.makeText(getContext(),"Bd Creada",Toast.LENGTH_SHORT).show();
+            //String query="insert into estudiante (name) values ('royer');";
+            //db.execSQL(query);
         }
     }
 

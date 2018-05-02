@@ -35,7 +35,13 @@
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="16pt"
-            android:onClick="irHomeApp"
+            android:onClick="irHomeAppView"
             android:text="@string/btnHomeApp" />
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

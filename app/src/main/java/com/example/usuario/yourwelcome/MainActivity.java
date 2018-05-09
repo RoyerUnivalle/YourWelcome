@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -52,6 +55,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         manager = AccountManager.get(this);
 
         findViewById(R.id.sign_in).setOnClickListener(this);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mAdView.setAdListener(new AdListener(){
+
+        });
     }
     public void irHome(View g){
         Intent ir = new Intent(MainActivity.this,Home.class);

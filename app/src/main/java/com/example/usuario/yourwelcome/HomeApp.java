@@ -16,11 +16,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmentInteractionListener, Network.OnFragmentInteractionListener, EstudiantesView.OnFragmentInteractionListener {
+public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmentInteractionListener, Network.OnFragmentInteractionListener, EstudiantesView.OnFragmentInteractionListener, Feeds.OnFragmentInteractionListener {
 
 
     DataBaseCrud frag;
     Network networkFrag;
+    Feeds feed;
 
     FragmentManager manager;
 
@@ -73,6 +74,13 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
         //fra.
     }
 
+    public void mostrarFeed(){
+        feed = new Feeds();
+        android.support.v4.app.FragmentTransaction transactionNet = getSupportFragmentManager().beginTransaction();
+        transactionNet.add(R.id.fragmentA,feed);
+        transactionNet.commit();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -92,8 +100,9 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
         switch (item.getItemId()) {
             case R.id.action_back_gorund:
                 // User chose the "Settings" item, show the app settings UI...
-                item.getTitle();
-                Toast.makeText(this,"hola "+item.getTitle(),Toast.LENGTH_LONG).show();
+                //item.getTitle();
+                //Toast.makeText(this,"hola "+item.getTitle(),Toast.LENGTH_LONG).show();
+                mostrarFeed();
                 return true;
 
             case R.id.action_data_base:

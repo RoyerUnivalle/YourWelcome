@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HttpExample">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnTestFeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Probar Feed" />
+
+        <EditText
+            android:id="@+id/edResultadoFeed"
+            android:layout_width="match_parent"
+            android:layout_height="195dp"
+            android:background="@color/white"
+            android:hint="Resultado"
+            />
+        <EditText
+            android:id="@+id/edEscuchador"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:hint="Estoy escuchando"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Estudiante" />
+
+            <EditText
+                android:id="@+id/edAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Dirección" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRegistrarEstudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="InsertarEstudiante" />
+        <Button
+            android:id="@+id/btnConsultarEstudiantePorId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Consultar estudiante por ID" />
+        <Button
+            android:id="@+id/bntCerrarHttp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver" />
+
+    </LinearLayout>
+
+</FrameLayout>

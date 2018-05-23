@@ -16,7 +16,7 @@
 
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_back_gorund"
-        android:title="BackGround"
+        android:title="Http Example"
         android:icon="@drawable/back_ground"
         app:showAsAction="ifRoom"/>
 

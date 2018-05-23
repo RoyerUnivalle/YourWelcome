@@ -16,12 +16,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmentInteractionListener, Network.OnFragmentInteractionListener, EstudiantesView.OnFragmentInteractionListener, Feeds.OnFragmentInteractionListener {
+public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmentInteractionListener, Network.OnFragmentInteractionListener, EstudiantesView.OnFragmentInteractionListener {
 
 
     DataBaseCrud frag;
     Network networkFrag;
-    Feeds feed;
+    HttpExample fragHttp;
+
 
     FragmentManager manager;
 
@@ -74,11 +75,14 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
         //fra.
     }
 
-    public void mostrarFeed(){
-        feed = new Feeds();
-        android.support.v4.app.FragmentTransaction transactionNet = getSupportFragmentManager().beginTransaction();
-        transactionNet.add(R.id.fragmentA,feed);
-        transactionNet.commit();
+    public  void ejemplosHttp(){
+        if(fragHttp instanceof HttpExample){
+        }else{
+            fragHttp = new HttpExample();
+            android.support.v4.app.FragmentTransaction transtion=getSupportFragmentManager().beginTransaction();
+            transtion.add(R.id.fragmentA,fragHttp);
+            transtion.commit();
+        }
     }
 
     @Override
@@ -102,7 +106,7 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
                 // User chose the "Settings" item, show the app settings UI...
                 //item.getTitle();
                 //Toast.makeText(this,"hola "+item.getTitle(),Toast.LENGTH_LONG).show();
-                mostrarFeed();
+                ejemplosHttp();
                 return true;
 
             case R.id.action_data_base:

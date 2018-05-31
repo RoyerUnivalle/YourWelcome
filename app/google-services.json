@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "202556984260",
+    "firebase_url": "https://yourwelcomeuniva-1525305806642.firebaseio.com",
+    "project_id": "yourwelcomeuniva-1525305806642",
+    "storage_bucket": "yourwelcomeuniva-1525305806642.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202556984260:android:df63affcd58eebb9",
+        "android_client_info": {
+          "package_name": "com.example.usuario.yourwelcome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202556984260-uqm0iv2673bfgvqa99ieh2lim4pd2a72.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "202556984260-lm7q9u4n489an45k5stoo88qgbs3jmao.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "202556984260-p7cl6s9j6f93ua2kedeiri7umf24k3hg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.usuario.yourwelcome",
+            "certificate_hash": "18ae8c36ed16ed52963a453610091bc64301eba3"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiu_vdKfV-jlLUGQGxQJtyynoe1EmP9ck"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202556984260-uqm0iv2673bfgvqa99ieh2lim4pd2a72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

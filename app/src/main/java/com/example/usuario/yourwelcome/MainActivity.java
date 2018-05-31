@@ -23,6 +23,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAdView.setAdListener(new AdListener(){
 
         });
+        String token = FirebaseInstanceId.getInstance().getToken();
+        System.out.println("Token2: " + token);
     }
     public void irHome(View g){
         Intent ir = new Intent(MainActivity.this,Home.class);

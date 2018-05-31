@@ -22,6 +22,7 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
     DataBaseCrud frag;
     Network networkFrag;
     HttpExample fragHttp;
+    GoogleMapExample fr4;
 
 
     FragmentManager manager;
@@ -84,6 +85,16 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
             transtion.commit();
         }
     }
+    public  void ejemplosMaps(){
+        if(fr4 instanceof GoogleMapExample){
+
+        }else{
+            fr4 = new GoogleMapExample();
+            android.support.v4.app.FragmentTransaction transtion=getSupportFragmentManager().beginTransaction();
+            transtion.add(R.id.fragmentA,fr4);
+            transtion.commit();
+        }
+    }
 
     @Override
     protected void onDestroy() {
@@ -115,7 +126,8 @@ public class HomeApp extends AppCompatActivity implements DataBaseCrud.OnFragmen
                 return true;
 
             case R.id.action_service:
-                Toast.makeText(this,"hola "+item.getTitle(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(this,"hola "+item.getTitle(),Toast.LENGTH_LONG).show();
+                ejemplosMaps();
                 return true;
 
             case R.id.action_network:

@@ -21,7 +21,7 @@
         app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/action_service"
-        android:title="Service2"
+        android:title="Mapas"
         android:icon="@drawable/service"
         app:showAsAction="never"
         android:layout_width="wrap_content" />

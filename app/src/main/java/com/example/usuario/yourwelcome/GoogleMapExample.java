@@ -23,10 +23,13 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import android.Manifest;
 
@@ -108,6 +111,7 @@ public class GoogleMapExample extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
         LatLng tuluaUceva = new LatLng(4.062975, -76.198423);
+        LatLng tuluaunivalle = new LatLng(4.070755, -76.190168);
 
         this.mapaTotal=map;
 
@@ -132,11 +136,24 @@ public class GoogleMapExample extends Fragment implements OnMapReadyCallback {
                 anadirMarca(point.latitude,point.longitude);
             }
         });
+        BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.univalle_icon);
+        BitmapDescriptor iconUceva = BitmapDescriptorFactory.fromResource(R.drawable.uceva);
         mapaTotal.addMarker(new MarkerOptions()
-                .title("Sydney")
-                //.icon(R.drawable.agenda)
-                .snippet("The most populous city in Australia.")
+                .title("Uceva")
+                //.icon(iconUceva)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .snippet("Sede Campus.")
                 .position(tuluaUceva));
+        mapaTotal.addMarker(new MarkerOptions()
+                .title("Univalle")
+                //.icon(icon)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .snippet("Sede villa.")
+                .position(tuluaunivalle));
+        Polyline line = map.addPolyline(new PolylineOptions()
+                .add(tuluaUceva, tuluaunivalle)
+                .width(5)
+                .color(Color.RED));
     }
 
     public void anadirMarca(double lat, double lon){
